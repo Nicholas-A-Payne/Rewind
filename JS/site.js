@@ -1,14 +1,31 @@
 
-// Dispalying Darren to unsuspecting Victims
-function getMessage(){
+//pull user entered value from the page------------------------------------------------------------------------------------
+function getValues(){
+    let userString = document.getElementById("revString").value;
 
-    let userMessage = document.getElementById("message").value;
+    //calling reverse function
+    let revString = reverseAString(userString);
+
+    //calling display function(Displaying it on the screen)
+    displayData(revString);
+}
+
+
+//This is our generate data function---------------------------------------------------------------------------------------
+function reverseAString(userString){
     
-Swal.fire(
-    'The App Title',
-    userMessage,
-    'question'
-    );
+    let revString = "";
+    for (let index = userString.length -1 ; index >= 0 ; index--) {
+        revString += userString[index];
+    }
 
-    console.log(userMessage);
+    return revString;
+}
+
+
+//This is our Display Data function----------------------------------------------------------------------------------------
+function displayData(revString){
+
+    document.getElementById("msg").innerHTML = `Your String Reversed is: ${revString}`;
+    document.getElementById("alert").classList.remove('d-none');
 }

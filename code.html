@@ -7,7 +7,7 @@ bscf=
 ---------------------------------------------------------------------------------------------------------------------------->
 
 <head>
-    <title>APP NAME: A JS PROJECT</title>
+    <title>Rewind: A Coding Challenge</title>
 
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -41,15 +41,15 @@ bscf=
     <nav class="navbar navbar-expand-md navbar-dark fixed-top navbarBG">
         <div class="container-fluid">
             <a class="navbar-brand" href="/index.html">
-                <img src="/IMG/MspectreMark.svg" alt="App Name Place Hokder" height="24"
+                <img src="/IMG/Corvid-Purple-White.PNG" alt="App Name Place Hokder" height="35"
                     class="d-inline-block align-text-top">
-                APP NAME
+                Rewind
             </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse navText" id="navbarCollapse">
+            <div class="collapse navbar-collapse navText mb-1" id="navbarCollapse">
                 <ul class="navbar-nav me-auto mb-2 mb-md-0">
                     <li class="nav-item">
                         <a class="nav-link" href="/index.html">Home</a>
@@ -82,25 +82,43 @@ bscf=
             <h2 class="border-1 border-bottom border-dark"> The Code</h2>
             <div class="row">
                 <div class="col-12 col-lg-8">
-                    <pre class="line-numbers"><code class="language-js"> // Dispalying Darren to unsuspecting Victims
- function getMessage(){
+                    <pre class="line-numbers"><code class="language-js"> 
+//pull user entered value from the page------------------------------------------------------------------------------------
+function getValues(){
+    let userString = document.getElementById("revString").value;
 
- let userMessage = document.getElementById("message").value;
+    //calling reverse function
+    let revString = reverseAString(userString);
 
- Swal.fire(
-'The App Title',
-userMessage,
-'question'
- );
- console.log(userMessage);
-};
+    //calling display function(Displaying it on the screen)
+    displayData(revString);
+}
+
+
+//This is our generate data function---------------------------------------------------------------------------------------
+function reverseAString(userString){
+    
+    let revString = "";
+    for (let index = userString.length -1 ; index >= 0 ; index--) {
+        revString += userString[index];
+    }
+
+    return revString;
+}
+
+
+//This is our Display Data function----------------------------------------------------------------------------------------
+function displayData(revString){
+
+    document.getElementById("msg").innerHTML = `Your String Reversed is: ${revString}`;
+    document.getElementById("alert").classList.remove('d-none');
+}
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
+                    <h5></h5>
                     <p>The code is structured in one function. it accesses the users input the displays a Sweetalert funtion.</p>
-                    <h5>getMessages</h5>
-                    <p>Prints the user's inputted message.</p>
                 </div>
             </div>
         </div>
